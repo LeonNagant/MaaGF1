@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "name": "MaaGF1",
-  "version": "v1.6",
+  "version": "v1.6-dev",
   "url": "https://github.com/LeonNagant/MaaGF1_Test",
   "mirrorchyan_rid": null,
   "mirrorchyan_multiplatform": false,
@@ -30,6 +30,10 @@
       ]
     }
   ],
+  "agent": {
+    "child_exec": "{PROJECT_DIR}/agent/dist/maa_agent.exe",
+    "child_args": []
+  },
   "task": [
     {
       "name": "13-4循环",
@@ -41,8 +45,7 @@
       "option": [
         "134_弹药检查版本选择",
         "134_是否开启结算加速",
-        "134_是否开启无限循环",
-        "134_路线选择"
+        "134_是否开启无限循环"
       ]
     },
     {
@@ -154,17 +157,6 @@
       "repeat_count": 9999
     },
     {
-      "name": "4-6捡垃圾",
-      "entry": "!4_6捡垃圾总流程",
-      "check": false,
-      "doc": "部署梯队拉到右上角边缘",
-      "option": [
-        "捡垃圾版本选择"
-      ],
-      "repeatable": false,
-      "repeat_count": 1
-    },
-    {
       "name": "指挥官后勤",
       "entry": "!指挥官后勤",
       "check": false,
@@ -238,6 +230,17 @@
       "option": [
         "选择夜战打捞地图"
       ]
+    },
+    {
+      "name": "CustomServer",
+      "entry": "!CustomServer",
+      "check": false,
+      "doc": "自定义后台服务器，开发中",
+      "option": [
+        "CustomServer_List"
+      ],
+      "repeatable": false,
+      "repeat_count": 1
     },
     {
       "name": "返回主界面",
@@ -1196,6 +1199,34 @@
                 "跑步机_切换待机",
                 "跑步机_跳过战斗"
               ]
+            }
+          }
+        }
+      ]
+    },
+    "CustomServer_List": {
+      "cases": [
+        {
+          "name": "默认外部通知接口",
+          "pipeline_override": {
+            "!CustomServer": {
+              "next": "!Notify_Default_Task"
+            }
+          }
+        },
+        {
+          "name": "Telegram消息测试",
+          "pipeline_override": {
+            "!CustomServer": {
+              "next": "!Notify_Telegram_Task"
+            }
+          }
+        },
+        {
+          "name": "企业微信消息测试",
+          "pipeline_override": {
+            "!CustomServer": {
+              "next": "!Notify_Wechat_Task"
             }
           }
         }

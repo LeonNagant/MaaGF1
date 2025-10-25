@@ -1,5 +1,5 @@
 {
     "!CustomServer": {
-        "next": "!CustomServer_Task_GreyZone"
+        "next": "!Notify_Telegram_Task"
     }
 }
