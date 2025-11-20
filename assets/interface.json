@@ -30,10 +30,6 @@
             ]
         }
     ],
-    "agent": {
-        "child_exec": "{PROJECT_DIR}/agent/dist/maa_agent.exe",
-        "child_args": []
-    },
     "task": [
         {
             "name": "13-4循环",
@@ -1469,6 +1465,38 @@
                     "pipeline_override": {
                         "!CustomServer": {
                             "next": "!Borderless_Revert_Task"
+                        }
+                    }
+                },
+                {
+                    "name": "单元测试_默认外部通知",
+                    "pipeline_override": {
+                        "!CustomServer": {
+                            "next": "!Unit_Test_Notify_Default_Task"
+                        }
+                    }
+                },
+                {
+                    "name": "单元测试_电报",
+                    "pipeline_override": {
+                        "!CustomServer": {
+                            "next": "!Unit_Test_Notify_Telegram_Task"
+                        }
+                    }
+                },
+                {
+                    "name": "单元测试_微信",
+                    "pipeline_override": {
+                        "!CustomServer": {
+                            "next": "!Unit_Test_Notify_Wechat_Task"
+                        }
+                    }
+                },
+                {
+                    "name": "单元测试_看门狗",
+                    "pipeline_override": {
+                        "!CustomServer": {
+                            "next": "!Unit_Test_Watchdog_Task"
                         }
                     }
                 }
