@@ -135,7 +135,7 @@
 		"recognition": "TemplateMatch",
 		"roi": [410, 670, 571, 50],
 		"template": "combat/resourceRecovery/卷积核/卷积核打捞图.png",
-		"threshold":0.62,
+		"threshold": 0.62,
 		"duration": 20,
 		"action": "LongPress",
 		"target_offset": [173, -138, 0, 0],
