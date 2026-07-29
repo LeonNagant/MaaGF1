@@ -132,14 +132,14 @@
 			"逃亡_滑动3"
 		]
 	},
-	"逃亡_边缘检测":{
+	"逃亡_边缘检测": {
 		"recognition": "TemplateMatch",
-		"roi":[707,368,339,218],
-		"threshold":0.85,
-		"template":"combat/resourceRecovery/卷积核/逃亡_边缘检测.png",
+		"roi": [707, 368, 339, 218],
+		"threshold": 0.85,
+		"template": "combat/resourceRecovery/卷积核/逃亡_边缘检测.png",
 		"duration": 20,
 		"action": "LongPress",
-		"target":[122,503,1,1],
+		"target": [122, 503, 1, 1],
 		"post_delay": 1000,
 		"next": [
 			"逃亡_进入卷积核关卡",
@@ -150,7 +150,7 @@
 		"recognition": "TemplateMatch",
 		"roi": [410, 670, 571, 50],
 		"template": "combat/resourceRecovery/卷积核/卷积核打捞图.png",
-		"threshold":0.62,
+		"threshold": 0.62,
 		"duration": 20,
 		"action": "LongPress",
 		"target_offset": [173, -138, 0, 0],
